@@ -3,6 +3,9 @@ RailsBlog::Application.routes.draw do
 	resources :posts do
 	  resources :comments
 	end
+
+	resources :users
+
   get "home/index"
   root :to => "home#index"
 
