@@ -1,5 +1,8 @@
-<h1>Listing users</h1>
+<h1>Listing users: (<%= @users.count %>)</h1>
 <% @users.each do |user| %>
-	<%= user.username %>
-	<%= user.password %>
+	<p>
+	<b>username:</b> <%= user.username %><br />
+	<b>password:</b> <%= user.password %>
+	</p>
 <% end %>
+<%= link_to "create user", new_user_path %>
