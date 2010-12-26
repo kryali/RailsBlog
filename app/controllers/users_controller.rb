@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(params[:user])
 		@user.save
-		redirect_to('/users/')
+		redirect_to(Post)
+		flash[:notice] = @user.errors
 	end
 
 	def destroy
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
   	  @user = User.new(params[:loginform])
   	  valid_user = User.find(:first,:conditions => ["username = ? and password = ?",@user.username, @user.password])
   	  if valid_user
-  	    session[:current_user_id] = valid_user.username
+  	    session[:current_user_id] = valid_user.id
       	redirect_to Post
       	flash[:notice] = "Logged in!"
       else
