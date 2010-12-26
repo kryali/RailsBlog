@@ -51,4 +51,8 @@ class UsersController < ApplicationController
 	  redirect_to Post
 	end
 	
+	def show
+	  @user = User.find(:first, :conditions => {:username => params[:id]})
+	end
+	
 end

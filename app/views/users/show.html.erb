@@ -1,1 +1,11 @@
-show
+<h1>User: <%= @user.username %></h1><br />
+<h2> Posts</h2>
+<% @user.posts.each do |post|%>
+	<%= post.title %> -
+	<%= post.content %><br/>
+	
+<h2>Comments</h2>
+<% end %>
+<% @user.comments.each do |comment|%>
+	<%= comment.body %><br/>
+<% end %>
