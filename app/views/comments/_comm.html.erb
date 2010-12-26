@@ -1,6 +1,6 @@
 <p>
     <b>Commenter:</b>
-    <%= comm.commenter %>
+	<%= User.find(comm.user_id).username %>
   </p>
  
   <p>

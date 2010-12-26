@@ -41,7 +41,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
+    current_user = User.find(session[:current_user_id])
+    @post = current_user.posts.create(params[:post])
 
     respond_to do |format|
       if @post.save
