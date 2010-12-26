@@ -1,3 +1,4 @@
+Hello! <%= session[:current_user_id] %>
 <h1>Listing posts</h1>
 
 <table>
@@ -25,4 +26,11 @@
 <br />
 
 <%= render 'other' %>
-<%= link_to 'New Post', new_post_path %>
+<% if session[:current_user_id] %>
+	<%= link_to 'New Post', new_post_path %>
+	<%= link_to "logout",:controller => "users", :action => "logout" %>
+<% else %>
+	<%= link_to 'Register', new_user_path %>
+	<%= link_to "Login",:controller => "users", :action => "login" %>
+<% end %>
+<%= link_to 'Users',  User %>

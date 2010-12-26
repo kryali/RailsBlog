@@ -1,13 +1,18 @@
 RailsBlog::Application.routes.draw do
 
 	resources :posts do
-	  resources :comments
+	  resources :comments do
+	  end
 	end
 
-	resources :users
+  match 'users/login' => "users#login"
+  match 'users/authenticate' => "users#authenticate"
+  match 'users/logout' => "users#logout"
+	resources :users do
+	end
 
   get "home/index"
-  root :to => "home#index"
+  root :to => "posts#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

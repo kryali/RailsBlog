@@ -1,8 +1,10 @@
 <h1>Listing users: (<%= @users.count %>)</h1>
 <% @users.each do |user| %>
 	<p>
-	<b>username:</b> <%= user.username %><br />
+	<b>username:</b> <%= user.username %> <%= link_to "Delete", user, :confirm => "Are you sure?", :method => :delete %><br />
 	<b>password:</b> <%= user.password %>
 	</p>
 <% end %>
-<%= link_to "create user", new_user_path %>
+	<%= link_to "create user", new_user_path %>
+	<%= link_to "login",  :action => 'login' %>
+

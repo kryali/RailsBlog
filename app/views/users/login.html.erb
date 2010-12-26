@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<%= form_tag :action => 'authenticate' %>
+username: <%= text_field 'loginform', :username %><br />
+password: <%= password_field 'loginform', :password %>
+<br />
+<%= submit_tag 'login'  %>
+
