@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(params[:user])
 		@user.save
+		UserMailer.welcome_email(@user).deliver
 		redirect_to(Post)
 		flash[:notice] = @user.errors
 	end
