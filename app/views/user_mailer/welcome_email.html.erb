@@ -4,7 +4,7 @@
     	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 	</head>
 	<body>
-		<h1>A new user has registered</h1>
-		<p>Let's see if you can get this email first though</p>
+		<h1>Welcome <%= @user.username %>!</h1>
+		<p>Please Login <a href="<%= @url %>">here</a></p>
 	</body>
 </html>

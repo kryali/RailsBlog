@@ -1,9 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default :from => "noreply@gentle-samurai-40.heroku.com"
+  default :from => "noreply@coursesillinois.com"
 
 	def welcome_email(user)
-		# @user = user
+		@user = user
 		@url = "http://coursesillinois.com/login"
-		mail(:to => "kiranryali@yahoo.com", :subject => "Welcome to My Awesome Site")
+		mail(:to => @user.username + "@yahoo.com", :subject => "Welcome to CoursesIllinois")
 	end
 end
